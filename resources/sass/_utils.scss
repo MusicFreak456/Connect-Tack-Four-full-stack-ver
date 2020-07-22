@@ -1,0 +1,68 @@
+@use "sass:color";
+
+//   Hover effects
+@mixin hoverable_lighten($color, $percentage:5% ) {
+    &:hover{
+        background-color: lighten($color, $percentage); 
+        cursor: pointer;
+        @content;
+    }   
+};
+
+@mixin hoverable_darken($color, $percentage:5% ) {
+    &:hover{
+        background-color: darken($color, $percentage); 
+        cursor: pointer;
+        @content;
+    }   
+};
+
+@mixin hoverable_opacify($color, $amount:0.4){
+    &:hover{
+        background-color: color.adjust($color, $alpha: $amount);
+        cursor: pointer;
+        @content;
+    }
+    
+}
+
+// Buttons
+
+@mixin button-primary{
+    button{
+        margin-top: 10px;
+        border: none;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 20px;
+        font-weight: bolder;
+        font-size: larger;
+        background-color: $button-background-color-primary;
+        color: white;
+
+        @include hoverable_darken($button-background-color-primary, 2%);
+        @content;
+    }   
+};
+
+// Form fields
+
+@mixin input-rounded($padding:10px, $margin-top: 15px){
+    input{
+        margin-top: $margin-top;
+        padding: $padding;
+        border: none;
+        border-radius: 10px;
+
+        @content;
+    }
+}
+
+// Transitions
+
+@mixin transition_all($duration:0.5s) {
+    transition: all $duration;
+}
+

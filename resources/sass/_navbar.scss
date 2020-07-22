@@ -1,0 +1,54 @@
+
+.navbar{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: $navbar-background-color;
+
+    #logo{
+        float: left;
+        margin-top: 8px;
+        margin-left: 10px;
+        margin-bottom: 8px;
+    }
+
+    ul{
+        float: left;
+        list-style-type: none;
+        display: flex;
+        padding-left: 0px;
+        margin: 0px;
+        margin-left: 20px;
+
+        li{
+            float: left;
+            height: $navbar-height;
+            width: $tab-width;
+            line-height: $navbar-height;
+            font-size: 15px;
+            margin: 0px;
+            margin-right: 2px;
+            text-align: center;
+
+            @include hoverable_lighten($navbar-background-color)
+        }
+    }
+
+    #github{
+        display: flex;
+        flex-wrap: wrap;
+        width: 200px;
+        height: $navbar-height;
+        margin: 0;
+        margin-left: auto;
+        background-color: white;
+        font-size: 17px;
+        line-height: 55px;
+        padding-left: 1%;
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    }
+}

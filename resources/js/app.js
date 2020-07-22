@@ -6,7 +6,26 @@
 
 require('./bootstrap');
 
+import GameStoreModule from './store_modules/Store.vue';
+
 window.Vue = require('vue');
+window.Vuex = require('vuex');
+
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+    state: {
+        activeTab: 1
+    },
+    modules: {
+        GameStoreModule: GameStoreModule
+    },
+    mutations: {
+        changeActiveTab(state, newId){
+            state.activeTab = newId;
+        },
+    }
+}) 
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,7 +38,8 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('App', require('./components/App.vue').default);
+Vue.component('Navbar',require('./components/navbar/Navbar.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,4 +49,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    store: store
 });

@@ -1,8 +1,31 @@
 // Body
-$body-bg: #f8fafc;
+$body-bg: #00202b;
+
+// Navbar
+$navbar-background-color: #001922;
+$tab-active-color: #0c5570;
+$tab-hover-color: #012c3b;
+
+$tab-width: 130px;
+$navbar-height: 53px;
+
+// Forms
+$form-background-color: #003242;
+
+// Buttons
+$button-background-color-primary: #002633;
+$button-background-color-primary-darker: #001b24;
+
+// Finished Screen
+$fin-screen-background-color: #002633;
+
+// Game
+$tile-border-color: $body-bg;
+$tile-background-color: rgba(255,255,255, 0.25);
+
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: 'Montserrat', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 

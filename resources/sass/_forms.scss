@@ -1,0 +1,35 @@
+#init_form{
+    font-size: large;
+    text-align: center;
+    margin: auto;
+    margin-top: 100px;
+    background-color: #003242;
+    border-radius: 30px;
+    width: 250px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 180px;
+    padding-right: 180px;
+
+    h1{
+        margin: auto;
+        font-weight: bolder;
+    }
+
+    #names_forms{
+        margin-bottom: 30px;
+
+        @include input-rounded(){
+            font-weight: bold;
+            font-size: large;
+        }
+    }
+
+    #config_forms{
+        margin-bottom: 10px;
+
+        @include input-rounded(5px, 10px)
+    }
+
+    @include button-primary();
+}
