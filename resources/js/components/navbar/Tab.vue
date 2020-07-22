@@ -20,10 +20,14 @@ export default {
 
     methods:{
         changeTab(){
+            var newPath = '/' + ( (this.text === 'Play')? '' : this.text.toLowerCase());
+            var currentPath = this.$route.path;
 
-            if(this.text != 'Play')this.$router.push('/' + this.text.toLowerCase())
-            else this.$router.push('/');
-            this.$store.commit('changeActiveTab',this.id);
+            if(newPath != currentPath)
+            {
+                this.$router.push(newPath);
+                this.$store.commit('changeActiveTab',this.id);
+            }
         }
     }
 }

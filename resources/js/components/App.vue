@@ -1,6 +1,6 @@
 <template>
     <div id='content'>
-        <Game></Game>
+        <router-view></router-view>
     </div>
 </template>
 

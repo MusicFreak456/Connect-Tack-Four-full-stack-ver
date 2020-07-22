@@ -20,6 +20,10 @@
         margin: 0px;
         margin-left: 20px;
 
+        .active_tab{
+            border-bottom: 2px solid #0c5570;
+        }        
+
         li{
             float: left;
             height: $navbar-height;
@@ -52,3 +56,4 @@
         }
     }
 }
+

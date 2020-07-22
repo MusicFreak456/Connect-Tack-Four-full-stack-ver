@@ -30,6 +30,10 @@
   margin-left: 20px;
 }
 
+.navbar ul .active_tab {
+  border-bottom: 2px solid #0c5570;
+}
+
 .navbar ul li {
   float: left;
   height: 53px;
