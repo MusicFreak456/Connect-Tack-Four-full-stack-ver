@@ -4,6 +4,8 @@ import GameStoreModule from './store_modules/GameStore.vue';
 import Game from './components/game/Game';
 import Rules from './components/rules/Rules';
 import About from './components/about/About';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 
 import VueRouter from 'vue-router';
 import Vue from 'vue';
@@ -15,7 +17,9 @@ Vue.use(VueRouter);
 const routes = [
     {path: '/', component: Game},
     {path: '/about', component: About},
-    {path: '/rules', component: Rules}
+    {path: '/rules', component: Rules},
+    {path: '/login', component: Login},
+    {path: '/register', component: Register}
 ]
 
 const router = new VueRouter({
@@ -25,7 +29,8 @@ const router = new VueRouter({
 
 const store = new Vuex.Store({
     state: {
-        activeTab: 1
+        activeTab: 1,
+        username: undefined
     },
     modules: {
         GameStoreModule: GameStoreModule
@@ -34,6 +39,10 @@ const store = new Vuex.Store({
         changeActiveTab(state, newId){
             state.activeTab = newId;
         },
+
+        setUsername(state, username){
+            state.username = username;
+        }
     }
 }) 
 

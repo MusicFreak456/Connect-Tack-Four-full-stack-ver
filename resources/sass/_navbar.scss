@@ -1,3 +1,6 @@
+@function get-profile-tab-bg($bg-color){
+    @return lighten($bg-color, 5%)
+}
 
 .navbar{
     display: flex;
@@ -21,14 +24,14 @@
         margin-left: 20px;
 
         .active_tab{
-            border-bottom: 2px solid #0c5570;
+            border-bottom: 2px solid $tab-active-color;
         }        
 
         li{
             float: left;
-            height: $navbar-height;
+            height: $navbar-height - 2px;
             width: $tab-width;
-            line-height: $navbar-height;
+            line-height: $navbar-height - 2px;
             font-size: 15px;
             margin: 0px;
             margin-right: 2px;
@@ -47,12 +50,41 @@
         margin-left: auto;
         background-color: white;
         font-size: 17px;
-        line-height: 55px;
+        line-height: $navbar-height;
         padding-left: 1%;
 
         a{
             text-decoration: none;
             color: black;
+        }
+    }
+
+    .profile-tab{
+        $profile-tab-bg: get-profile-tab-bg($navbar-background-color);
+        $padding-y: 15px;
+
+        display: flex;
+        flex-wrap: wrap;
+        width: auto;
+        height: $navbar-height;
+        margin: 0;
+        margin-left: auto;
+        font-size: 17px;
+        padding-left: $padding-y;
+        padding-right: $padding-y;
+        line-height: $navbar-height;
+        background-color: $profile-tab-bg;
+        border-left: 2px lighten($profile-tab-bg, 20%) dotted;
+
+        @include hoverable_lighten($profile-tab-bg);
+
+        h4{
+            margin: 0;
+        }
+
+        a{
+            color: white;
+            text-decoration: none;
         }
     }
 }

@@ -11,8 +11,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $aut_user = $request->user();
+        $username = NULL;
+        if($aut_user){
+            $username = $aut_user->username;
+        }
+
+        return view('home', compact('username'));
     }
 }

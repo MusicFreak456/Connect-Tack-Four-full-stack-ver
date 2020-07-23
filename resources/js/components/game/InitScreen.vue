@@ -1,5 +1,5 @@
 <template>
-    <div id='init_form'>
+    <div class="form-primary">
             <h1>New game</h1>
             <br>
 

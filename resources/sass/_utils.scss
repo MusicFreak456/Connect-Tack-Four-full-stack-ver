@@ -60,9 +60,44 @@
     }
 }
 
+// Cards
+@mixin card-like($max-width:500px){
+    font-size: large;
+    text-align: center;
+    margin: auto;
+    margin-top: 100px;
+    background-color: $card-background-color;
+    border-radius: 30px;
+    max-width: 500px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
 // Transitions
 
 @mixin transition_all($duration:0.5s) {
     transition: all $duration;
+}
+
+// Other
+
+@mixin error_line {
+    .error-line{
+        padding-top: 10px;
+        color: $red;
+    }
+}
+@mixin note-line {
+    .note-line{
+        padding-top: 10px;
+        font-weight: lighter;
+    }
+}
+
+.float-left-container{
+    display: flex;
+    margin-left: auto;
 }
 

@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container">
-        <App></App>
+        <App username='{{$username}}'></App>
     </div>
 @endsection

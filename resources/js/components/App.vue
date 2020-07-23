@@ -9,8 +9,15 @@
 import Game from './game/Game';
 
 var App = {
+    props: [
+        'username'
+    ],
     components: {
         'Game': Game
+    },
+
+    created(){
+        this.$store.commit('setUsername',this.username);
     }
 }
 
