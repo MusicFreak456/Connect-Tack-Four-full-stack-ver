@@ -2463,7 +2463,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push('/login')["catch"](function (error) {});
     },
     goToProfile: function goToProfile() {
-      this.$router.push('/profile');
+      this.$router.push('/profile/' + this.userId);
     }
   }
 });
@@ -2578,15 +2578,19 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       profile: undefined,
-      about: undefined
+      about: undefined,
+      user: undefined
     };
   },
   computed: {
     userName: function userName() {
-      return this.$store.state.user.username;
+      if (this.user) return this.user.username;else return undefined;
     },
     userEmail: function userEmail() {
-      return this.$store.state.user.email;
+      if (this.user) return this.user.email;else return undefined;
+    },
+    userId: function userId() {
+      if (this.user) return this.user.id;else return undefined;
     }
   },
   methods: {
@@ -2594,9 +2598,20 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/sanctum/csrf-cookie').then(function (response) {
-        axios.get('/api/profile').then(function (response) {
+        axios.get('/api/profile/' + _this.$route.params.id).then(function (response) {
           _this.profile = response.data;
           _this.about = _this.profile.about;
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      });
+    },
+    getUser: function getUser() {
+      var _this2 = this;
+
+      axios.get('/sanctum/csrf-cookie').then(function (response) {
+        axios.get('/api/user/' + _this2.$route.params.id).then(function (response) {
+          _this2.user = response.data;
         })["catch"](function (error) {
           console.log(error);
         });
@@ -2612,6 +2627,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getProfile();
+    this.getUser();
   }
 });
 
@@ -55714,7 +55730,7 @@ var routes = [{
   path: '/register',
   component: _components_auth_Register__WEBPACK_IMPORTED_MODULE_5__["default"]
 }, {
-  path: '/profile/',
+  path: '/profile/:id',
   component: _components_profile_Profile__WEBPACK_IMPORTED_MODULE_6__["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_7__["default"]({

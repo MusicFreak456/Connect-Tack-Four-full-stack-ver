@@ -12,27 +12,49 @@ export default {
     data: function (){
         return {
             profile: undefined,
-            about: undefined
+            about: undefined,
+            user: undefined
         }
     },
 
     computed:{
 
         userName: function(){
-            return this.$store.state.user.username;
+            if(this.user)
+            return this.user.username;
+            else return undefined;
         },
         userEmail: function(){
-            return this.$store.state.user.email;
+            if(this.user)
+            return this.user.email;
+            else return undefined;
+        },
+        userId: function(){
+            if(this.user)
+            return this.user.id;
+            else return undefined;
         }
     },
 
     methods:{
         getProfile(){
             axios.get('/sanctum/csrf-cookie').then( response => {
-                axios.get('/api/profile')
+                axios.get('/api/profile/' + this.$route.params.id)
                     .then(response => {
                         this.profile = response.data;
                         this.about = this.profile.about;
+                    })
+                    .catch( error => {
+                        console.log(error);
+                    })
+            });
+        },
+
+        getUser(){
+            axios.get('/sanctum/csrf-cookie').then( response => {
+                axios.get('/api/user/' + this.$route.params.id)
+                    .then(response => {
+                        this.user = response.data;
                     })
                     .catch( error => {
                         console.log(error);
@@ -51,6 +73,7 @@ export default {
     },
     created(){
         this.getProfile();
+        this.getUser();
     }
 }
 </script>

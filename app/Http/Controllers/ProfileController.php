@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function index(Request $request)
+    public function show(\App\Profile $profile)
     {
-        return $request->user()->profile;
+        return $profile;
     }
 }
