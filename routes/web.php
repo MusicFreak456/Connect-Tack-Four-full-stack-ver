@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::middleware('auth:sanctum')->get('/api/profile','ProfileController@index');
+
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::post('/register', 'Auth\RegisterController@register');
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::middleware('auth:sanctum')->get('/profile','HomeController@index');
 
 Route::get('/{catch_all}', 'HomeController@index')->name('home');

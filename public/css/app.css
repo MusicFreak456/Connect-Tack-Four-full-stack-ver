@@ -255,3 +255,26 @@ body {
           backdrop-filter: blur(10px);
 }
 
+.profile-card {
+  font-size: large;
+  text-align: center;
+  margin: auto;
+  margin-top: 100px;
+  background-color: #003242;
+  border-radius: 30px;
+  max-width: 500px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 90px;
+  padding-right: 90px;
+}
+
+.profile-card .profile-pic-large {
+  border-radius: 50%;
+  max-width: 100px;
+}
+
+.profile-card .info-line {
+  border-bottom: 1px solid grey;
+}
+

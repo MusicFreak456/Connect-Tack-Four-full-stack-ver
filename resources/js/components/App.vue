@@ -10,14 +10,20 @@ import Game from './game/Game';
 
 var App = {
     props: [
-        'username'
+        'user'
     ],
     components: {
         'Game': Game
     },
 
+    computed:{
+        userObject: function() {
+            return JSON.parse(this.user);
+        }
+    },
+
     created(){
-        this.$store.commit('setUsername',this.username);
+        if(this.user)this.$store.commit('setUser',this.userObject);
     }
 }
 

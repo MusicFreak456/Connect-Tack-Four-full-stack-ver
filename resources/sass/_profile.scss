@@ -1,0 +1,12 @@
+.profile-card{
+    @include card-like();
+
+    .profile-pic-large{
+        border-radius: 50%;
+        max-width: 100px;
+    }
+
+    .info-line{
+        border-bottom: 1px solid grey;
+    }
+}

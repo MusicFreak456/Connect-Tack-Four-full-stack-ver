@@ -13,12 +13,8 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $aut_user = $request->user();
-        $username = NULL;
-        if($aut_user){
-            $username = $aut_user->username;
-        }
+        $user = $request->user();
 
-        return view('home', compact('username'));
+        return view('home', compact('user'));
     }
 }

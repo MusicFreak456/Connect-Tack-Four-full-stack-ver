@@ -1,6 +1,6 @@
 <template>
     <div v-if= 'loggedIn' class="float-left-container">
-        <div class='profile-tab'>
+        <div class='profile-tab' @click="goToProfile()">
             {{this.username}}
         </div>
         <div class='profile-tab' @click="handleLogout()">
@@ -23,11 +23,19 @@ export default {
 
     computed: {
         username: function (){
-            return this.$store.state.username;
+            var user = this.$store.state.user;
+            if(user) return user.username;
+            else return undefined;
+        },
+
+        userId: function(){
+            var user = this.$store.state.user;
+            if(user) return user.id;
+            else return undefined;
         },
 
         loggedIn: function (){
-            return this.username != '';
+            return this.userId ? true : false;
         }
     },
 
@@ -46,6 +54,9 @@ export default {
         goToLogin(){
             this.$router.push('/login')
                 .catch(error => {})
+        },
+        goToProfile(){
+            this.$router.push('/profile');
         }
     }
 }
