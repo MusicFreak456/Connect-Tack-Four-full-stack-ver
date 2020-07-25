@@ -24,5 +24,10 @@
         @include input-rounded(5px, 10px)
     }
 
+    textarea{
+        border-radius: 5px;
+        font-size: large;
+    }
+
     @include button-primary();
 }

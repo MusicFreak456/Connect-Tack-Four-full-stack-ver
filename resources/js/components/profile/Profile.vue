@@ -4,6 +4,8 @@
         <h1>{{this.userName}}</h1>
         <h4 class="info-line">About: {{this.about}}</h4>
         <h4 class="info-line">email: {{this.userEmail}}</h4>
+
+        <button v-if='isOwner' @click="goToEdit()">Edit</button>
     </div>
 </template>
 
@@ -33,6 +35,11 @@ export default {
             if(this.user)
             return this.user.id;
             else return undefined;
+        },
+        isOwner: function(){
+            var loggedInUser = this.$store.state.user;
+            if(loggedInUser) return this.userId === loggedInUser.id;
+            else return false;
         }
     },
 
@@ -50,6 +57,10 @@ export default {
             });
         },
 
+        goToEdit(){
+            this.$router.push('/profile/' + this.$route.params.id + '/edit');
+        },
+
         getUser(){
             axios.get('/sanctum/csrf-cookie').then( response => {
                 axios.get('/api/user/' + this.$route.params.id)
@@ -63,7 +74,7 @@ export default {
         },
         getUrl(){
             try{
-                if(this.profile.image) return this.profile.image;
+                if(this.profile.image) return  '../' + this.profile.image;
                 else return '/storage/placeholder.jpg';
             }
             catch(error){
@@ -71,7 +82,7 @@ export default {
             }
         }
     },
-    created(){
+    mounted(){
         this.getProfile();
         this.getUser();
     }

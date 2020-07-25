@@ -7,6 +7,7 @@ import About from './components/about/About';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Profile from './components/profile/Profile';
+import ProfileEdit from './components/profile/ProfileEdit';
 
 import VueRouter from 'vue-router';
 import Vue from 'vue';
@@ -21,7 +22,8 @@ const routes = [
     {path: '/rules', component: Rules},
     {path: '/login', component: Login},
     {path: '/register', component: Register},
-    {path: '/profile/:id',component: Profile}
+    {path: '/profile/:id', component: Profile},
+    {path: '/profile/:id/edit', component: ProfileEdit}
 ]
 
 const router = new VueRouter({

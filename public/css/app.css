@@ -155,6 +155,11 @@ body {
   border-radius: 10px;
 }
 
+.form-primary textarea {
+  border-radius: 5px;
+  font-size: large;
+}
+
 .form-primary button {
   margin-top: 10px;
   border: none;
@@ -276,5 +281,24 @@ body {
 
 .profile-card .info-line {
   border-bottom: 1px solid grey;
+}
+
+.profile-card button {
+  margin-top: 10px;
+  border: none;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+  font-weight: bolder;
+  font-size: larger;
+  background-color: #002633;
+  color: white;
+}
+
+.profile-card button:hover {
+  background-color: #001e29;
+  cursor: pointer;
 }
 

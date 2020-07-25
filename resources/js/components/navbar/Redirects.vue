@@ -56,7 +56,8 @@ export default {
                 .catch(error => {})
         },
         goToProfile(){
-            this.$router.push('/profile/'+ this.userId);
+            this.$router.push('/profile/'+ this.userId)
+                .catch(erroe => {});
         }
     }
 }

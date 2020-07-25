@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::middleware('auth:sanctum')->put('/api/profile/{user}','ProfileController@update')->name('profile.update');
 Route::get('/api/profile/{profile}','ProfileController@show')->name('profile.show');
 Route::get('/api/user/{user}','UserController@show')->name('user.show');
 
@@ -24,5 +25,6 @@ Route::post('/register', 'Auth\RegisterController@register');
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::middleware('auth:sanctum')->get('/profile/{id}','HomeController@index');
+Route::middleware('auth:sanctum')->get('/profile/{id}/edit','HomeController@index');
 
 Route::get('/{catch_all}', 'HomeController@index')->name('home');
