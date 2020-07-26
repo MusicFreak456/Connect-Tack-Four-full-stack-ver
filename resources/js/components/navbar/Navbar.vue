@@ -13,7 +13,7 @@ import Redirects from './Redirects';
 
 export default {
     components: {
-        'Logo':Logo,
+        'Logo': Logo,
         'Tabs': Tabs,
         'Redirects': Redirects
     }

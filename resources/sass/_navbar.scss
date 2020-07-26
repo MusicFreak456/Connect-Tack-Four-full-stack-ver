@@ -1,6 +1,6 @@
 @function get-profile-tab-bg($bg-color){
     @return lighten($bg-color, 5%)
-}
+};
 
 .navbar{
     display: flex;
@@ -25,7 +25,7 @@
 
         .active_tab{
             border-bottom: 2px solid $tab-active-color;
-        }        
+        }
 
         li{
             float: left;

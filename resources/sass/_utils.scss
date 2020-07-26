@@ -3,18 +3,18 @@
 //   Hover effects
 @mixin hoverable_lighten($color, $percentage:5% ) {
     &:hover{
-        background-color: lighten($color, $percentage); 
+        background-color: lighten($color, $percentage);
         cursor: pointer;
         @content;
-    }   
+    }
 };
 
 @mixin hoverable_darken($color, $percentage:5% ) {
     &:hover{
-        background-color: darken($color, $percentage); 
+        background-color: darken($color, $percentage);
         cursor: pointer;
         @content;
-    }   
+    }
 };
 
 @mixin hoverable_opacify($color, $amount:0.4){
@@ -23,7 +23,6 @@
         cursor: pointer;
         @content;
     }
-    
 }
 
 // Buttons
@@ -44,7 +43,7 @@
 
         @include hoverable_darken($button-background-color-primary, 2%);
         @content;
-    }   
+    }
 };
 
 // Form fields
